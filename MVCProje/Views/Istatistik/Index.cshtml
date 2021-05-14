@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>İSTATİSTİK</h2>
+
+<section class="content">
+    <div class="container-fluid">
+        <h5 class="mb-2">Info Box</h5>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-info"><i class="far fa-star"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Toplam Kategori</span>
+                        <span class="info-box-number">@ViewBag.KategoriSayi</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Film Kategorisi</span>
+                        <span class="info-box-number">@ViewBag.filmSayi</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Yazar İsim "%u%"</span>
+                        <span class="info-box-number">@ViewBag.yazarisima</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-danger"><i class="far fa-star"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Top Category</span>
+                        <span class="info-box-number">@ViewBag.topcategory</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-danger"><i class="far fa-star"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">True - False</span>
+                        <span class="info-box-number">@ViewBag.TF</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+        </div>
+        <!-- /.row -->
+
+
+
+        
+
+       
+
+        
+    </div><!-- /.container-fluid -->
+</section>
+
