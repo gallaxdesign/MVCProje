@@ -73,6 +73,22 @@
     <Compile Include="Migrations\202104170846456_writeredit.designer.cs">
       <DependentUpon>202104170846456_writeredit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105310654247_writeredit1.cs" />
+    <Compile Include="Migrations\202105310654247_writeredit1.designer.cs">
+      <DependentUpon>202105310654247_writeredit1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105310741053_writeredit2.cs" />
+    <Compile Include="Migrations\202105310741053_writeredit2.designer.cs">
+      <DependentUpon>202105310741053_writeredit2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105311228529_writerimage.cs" />
+    <Compile Include="Migrations\202105311228529_writerimage.designer.cs">
+      <DependentUpon>202105311228529_writerimage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105311325408_writerstatus.cs" />
+    <Compile Include="Migrations\202105311325408_writerstatus.designer.cs">
+      <DependentUpon>202105311325408_writerstatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -89,6 +105,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202104170846456_writeredit.resx">
       <DependentUpon>202104170846456_writeredit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105310654247_writeredit1.resx">
+      <DependentUpon>202105310654247_writeredit1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105310741053_writeredit2.resx">
+      <DependentUpon>202105310741053_writeredit2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105311228529_writerimage.resx">
+      <DependentUpon>202105311228529_writerimage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105311325408_writerstatus.resx">
+      <DependentUpon>202105311325408_writerstatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

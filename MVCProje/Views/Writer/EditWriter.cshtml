@@ -1,0 +1,47 @@
+﻿@model EntityLayer.Concrete.Writer
+@{
+    ViewBag.Title = "EditWriter";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Edit Writer</h2>
+@using (Html.BeginForm("EditWriter", "Writer", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.Label("Yazar ID")
+    @Html.TextBoxFor(x => x.WriterID)
+    <br />
+    @Html.Label("Yazar Adı")
+    @Html.TextBoxFor(x => x.WriterName)
+    @Html.ValidationMessageFor(x => x.WriterName)
+
+    <br />
+    @Html.Label("Yazar Soyadı")
+    @Html.TextBoxFor(x => x.WriterSurName)
+    @Html.ValidationMessageFor(x => x.WriterSurName)
+    <br />
+    @Html.Label("Şifresi")
+    @Html.TextBoxFor(x => x.WriterPassword)
+    @Html.ValidationMessageFor(x => x.WriterPassword)
+    <br />
+    @Html.Label("Yazar Mail Adresi")
+    @Html.TextBoxFor(x => x.WriterMail)
+    @Html.ValidationMessageFor(x => x.WriterAbout)
+    <br />
+    @Html.Label("Yazar Görseli")
+    @Html.TextBoxFor(x => x.WriterImage)
+    @Html.ValidationMessageFor(x => x.WriterAbout)
+    <br />
+    @Html.Label("Yazar Ünvanı")
+    @Html.TextBoxFor(x => x.WriterTitle, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.WriterTitle)
+    <br />
+    @Html.Label("Yazar Hakkında")
+    @Html.TextAreaFor(x => x.WriterAbout)
+    @Html.ValidationMessageFor(x => x.WriterAbout)
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+    //Yazar adı boş geçilemez nasıl kırmızı olur?S
+</div>
+}
+
