@@ -21,51 +21,34 @@ namespace BusinessLayer.Concrete
             _contentDal = contentDal;
         }
 
-
         public void ContentAdd(Content content)
         {
-            _contentDal.Insert(content);
+            throw new NotImplementedException();
         }
 
         public void ContentDelete(Content content)
         {
-            _contentDal.Delete(content);
+            throw new NotImplementedException();
         }
 
         public void ContentUpdate(Content content)
         {
-            _contentDal.Update(content);
+            throw new NotImplementedException();
         }
 
         public Content GetByID(int id)
         {
-            return _contentDal.Get(x => x.ContentID == id);
+            throw new NotImplementedException();
         }
 
-
-
-
-
-        //GenericRepository<Category> repo = new GenericRepository<Category>();
-
-        //public List<Category> GetAllBL()
-        //{
-        //    return repo.List();
-        //}
-        //public void CategoryAddBL(Category p)
-        //{
-        //    if(p.CategoryName=="" && p.CategoryName.Length>3 && p.CategoryDescription!="")
-        //    {
-        //        //hata mesajı
-        //    }
-        //    else
-        //    {
-        //        repo.Insert(p);
-        //    }
-        //}
         public List<Content> GetContentList()
         {
-            return _contentDal.List();
+            throw new NotImplementedException();
+        }
+
+        public List<Content> GetContentListByHeadingID(int id)
+        {
+            return _contentDal.List(x => x.HeadingID == id);
         }
     }
 }

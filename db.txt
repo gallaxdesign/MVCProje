@@ -1,0 +1,2 @@
+<add name="Context" connectionString="data source=GALLAXDESIGN-PC;initial catalog=DbMVCProje; integrated security=true;" providerName="System.Data.SqlClient" />
+<add name="Context" connectionString="data source=SONGUL-MACBOOK;initial catalog=DbMVCProje; integrated security=true;" providerName="System.Data.SqlClient" />
