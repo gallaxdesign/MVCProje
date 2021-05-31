@@ -12,12 +12,8 @@ namespace BusinessLayer.ValidationRules
     {
         public ContentValidator()
         {
-            RuleFor(X => X.ContentName).NotEmpty().WithMessage("Yazar Adını Boş Geçemezsiniz");
-            RuleFor(X => X.ContentName).MinimumLength(3).WithMessage("Kategori Adına En Az 2 Karakter Yazınız");
-            RuleFor(X => X.ContentName).MaximumLength(3).WithMessage("Kategori Adına En Fazla 50 Karakter Yazınız");
-            RuleFor(X => X.ContentSurName).NotEmpty().WithMessage("Yazar Soyadını Boş Geçemezsiniz");
-            RuleFor(X => X.ContentSurName).MinimumLength(3).WithMessage("Kategori Soyadına En Az 2 Karakter Yazınız");
-            RuleFor(X => X.ContentSurName).MaximumLength(3).WithMessage("Kategori Soyadına En Fazla 50 Karakter Yazınız");
+            RuleFor(X => X.ContentValue).NotEmpty().WithMessage("Yazar Adını Boş Geçemezsiniz");
+           
             //TODO yazarın hakkında a harfi geçsin
         }
     }
