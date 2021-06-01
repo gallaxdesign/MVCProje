@@ -1,2 +1,4 @@
 <add name="Context" connectionString="data source=GALLAXDESIGN-PC;initial catalog=DbMVCProje; integrated security=true;" providerName="System.Data.SqlClient" />
 <add name="Context" connectionString="data source=SONGUL-MACBOOK;initial catalog=DbMVCProje; integrated security=true;" providerName="System.Data.SqlClient" />
+
+ <add name="gallaxdbqxEntities" connectionString="metadata=res://*;provider=System.Data.SqlClient;provider connection string='packet size=4096;user id=galluser;pwd=r0Hpo20~;data source=85.95.237.227\MSSQLSERVER2016;persist security info=False;initial catalog=mvcproject1;'" providerName="System.Data.EntityClient" />

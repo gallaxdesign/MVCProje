@@ -38,7 +38,7 @@ namespace MVCProje.Controllers
                                                       Value = x.WriterID.ToString()
                                                   }).ToList();
             ViewBag.valcat = valueCategory;
-            ViewBag.valwrit = valueCategory;
+            ViewBag.valwrit = valueWriter;
             return View();
         }
         [HttpPost]
@@ -65,8 +65,22 @@ namespace MVCProje.Controllers
         [HttpGet]
         public ActionResult EditHeading(int id)
         {
-            var wvalue = hm.GetByID(id);
-            return View(wvalue);
+            List<SelectListItem> valueCategory = (from x in cm.GetCategoryList()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.CategoryName,
+                                                      Value = x.CategoryID.ToString()
+                                                  }).ToList();
+            List<SelectListItem> valueWriter = (from x in wm.GetWriterList()
+                                                select new SelectListItem
+                                                {
+                                                    Text = x.WriterName + " " + x.WriterSurName,
+                                                    Value = x.WriterID.ToString()
+                                                }).ToList();
+            ViewBag.valcat = valueCategory;
+            ViewBag.valwrit = valueWriter;
+            var hvalue = hm.GetByID(id);
+            return View(hvalue);
         }
         [HttpPost]
         public ActionResult EditHeading(Heading p)
@@ -87,9 +101,11 @@ namespace MVCProje.Controllers
             }
             return View();
         }
-        public ActionResult ContentByHeading()
+        public ActionResult DeleteHeading(int id)
         {
-            return View();
+            var HeadingValue = hm.GetByID(id);
+            HeadingValue.HeadingStatus = false;
+            hm.HeadingDelete(HeadingValue);
+            return RedirectToAction("Index");
         }
-    }
 }

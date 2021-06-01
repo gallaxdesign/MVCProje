@@ -59,6 +59,7 @@
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Concrete\Context.cs" />
+    <Compile Include="Concrete\Repositories\AboutRepository.cs" />
     <Compile Include="Concrete\Repositories\WriterRepository.cs" />
     <Compile Include="Concrete\Repositories\HeadingRepository.cs" />
     <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
@@ -89,6 +90,14 @@
     <Compile Include="Migrations\202105311325408_writerstatus.designer.cs">
       <DependentUpon>202105311325408_writerstatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106010733524_contentstatus.cs" />
+    <Compile Include="Migrations\202106010733524_contentstatus.designer.cs">
+      <DependentUpon>202106010733524_contentstatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106010735522_headingstatus.cs" />
+    <Compile Include="Migrations\202106010735522_headingstatus.designer.cs">
+      <DependentUpon>202106010735522_headingstatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -117,6 +126,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105311325408_writerstatus.resx">
       <DependentUpon>202105311325408_writerstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106010733524_contentstatus.resx">
+      <DependentUpon>202106010733524_contentstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106010735522_headingstatus.resx">
+      <DependentUpon>202106010735522_headingstatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

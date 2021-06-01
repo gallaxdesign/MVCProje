@@ -12,34 +12,34 @@ using System.Threading.Tasks;
 namespace BusinessLayer.Concrete
 {
 
-    public class HeadingManager : IHeadingService
+    public class ContactManager : IContactService
     {
-        IHeadingDal _headingDal;
+        IContactDal _contactDal;
 
-        public HeadingManager(IHeadingDal headingDal)
+        public ContactManager(IContactDal contactDal)
         {
-            _headingDal = headingDal;
+            _contactDal = contactDal;
         }
 
 
-        public void HeadingAdd(Heading heading)
+        public void ContactAdd(Contact contact)
         {
-            _headingDal.Insert(heading);
+            _contactDal.Insert(contact);
         }
 
-        public void HeadingDelete(Heading heading)
+        public void ContactDelete(Contact contact)
         {
-            _headingDal.Update(heading);
+            _contactDal.Delete(contact);
         }
 
-        public void HeadingUpdate(Heading heading)
+        public void ContactUpdate(Contact contact)
         {
-            _headingDal.Update(heading);
+            _contactDal.Update(contact);
         }
 
-        public Heading GetByID(int id)
+        public Contact GetByID(int id)
         {
-            return _headingDal.Get(x => x.HeadingID == id);
+            return _contactDal.Get(x => x.ContactID == id);
         }
 
 
@@ -63,9 +63,9 @@ namespace BusinessLayer.Concrete
         //        repo.Insert(p);
         //    }
         //}
-        public List<Heading> GetHeadingList()
+        public List<Contact> GetContactList()
         {
-            return _headingDal.List();
+            return _contactDal.List();
         }
     }
 }

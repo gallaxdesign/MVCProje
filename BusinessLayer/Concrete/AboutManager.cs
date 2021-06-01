@@ -12,34 +12,34 @@ using System.Threading.Tasks;
 namespace BusinessLayer.Concrete
 {
 
-    public class HeadingManager : IHeadingService
+    public class AboutManager : IAboutService
     {
-        IHeadingDal _headingDal;
+        IAboutDal _aboutDal;
 
-        public HeadingManager(IHeadingDal headingDal)
+        public AboutManager(IAboutDal aboutDal)
         {
-            _headingDal = headingDal;
+            _aboutDal = aboutDal;
         }
 
 
-        public void HeadingAdd(Heading heading)
+        public void AboutAdd(About about)
         {
-            _headingDal.Insert(heading);
+            _aboutDal.Insert(about);
         }
 
-        public void HeadingDelete(Heading heading)
+        public void AboutDelete(About about)
         {
-            _headingDal.Update(heading);
+            _aboutDal.Delete(about);
         }
 
-        public void HeadingUpdate(Heading heading)
+        public void AboutUpdate(About about)
         {
-            _headingDal.Update(heading);
+            _aboutDal.Update(about);
         }
 
-        public Heading GetByID(int id)
+        public About GetByID(int id)
         {
-            return _headingDal.Get(x => x.HeadingID == id);
+            return _aboutDal.Get(x => x.AboutID == id);
         }
 
 
@@ -63,9 +63,9 @@ namespace BusinessLayer.Concrete
         //        repo.Insert(p);
         //    }
         //}
-        public List<Heading> GetHeadingList()
+        public List<About> GetAboutList()
         {
-            return _headingDal.List();
+            return _aboutDal.List();
         }
     }
 }

@@ -139,6 +139,8 @@
     <Compile Include="Controllers\IstatistikController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\HeadingController.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\WriterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2287,8 +2289,12 @@
     <Content Include="Views\Writer\EditWriter.cshtml" />
     <Content Include="Views\Heading\Index.cshtml" />
     <Content Include="Views\Heading\AddHeading.cshtml" />
-    <Content Include="Views\Heading\ContentByHeading.cshtml" />
     <Content Include="Views\Content\ContentByHeading.cshtml" />
+    <Content Include="Views\Heading\EditHeading.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\About\AboutPartial.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Contact\GetContactDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2375,5 +2381,4 @@
   </Target>
   <Target Name="AfterBuild">
   </Target> -->
-
 </Project>
