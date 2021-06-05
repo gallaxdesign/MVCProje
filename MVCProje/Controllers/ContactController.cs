@@ -28,6 +28,11 @@ namespace MVCProje.Controllers
 
         }
 
+        public PartialViewResult MessageListMenu()
+        {
+            return PartialView();
+        }
+
         [HttpGet]
         public ActionResult AddContact()
         {

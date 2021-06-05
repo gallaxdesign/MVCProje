@@ -108,4 +108,5 @@ namespace MVCProje.Controllers
             hm.HeadingDelete(HeadingValue);
             return RedirectToAction("Index");
         }
+    }
 }

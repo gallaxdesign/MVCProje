@@ -42,27 +42,6 @@ namespace BusinessLayer.Concrete
             return _headingDal.Get(x => x.HeadingID == id);
         }
 
-
-
-
-
-        //GenericRepository<Category> repo = new GenericRepository<Category>();
-
-        //public List<Category> GetAllBL()
-        //{
-        //    return repo.List();
-        //}
-        //public void CategoryAddBL(Category p)
-        //{
-        //    if(p.CategoryName=="" && p.CategoryName.Length>3 && p.CategoryDescription!="")
-        //    {
-        //        //hata mesajı
-        //    }
-        //    else
-        //    {
-        //        repo.Insert(p);
-        //    }
-        //}
         public List<Heading> GetHeadingList()
         {
             return _headingDal.List();

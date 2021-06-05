@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IHeadingDal.cs" />
+    <Compile Include="Abstract\IMessageDal.cs" />
+    <Compile Include="Abstract\IImageFileDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IContactDal.cs" />
@@ -60,6 +62,7 @@
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\AboutRepository.cs" />
+    <Compile Include="Concrete\Repositories\MessageRepository.cs" />
     <Compile Include="Concrete\Repositories\WriterRepository.cs" />
     <Compile Include="Concrete\Repositories\HeadingRepository.cs" />
     <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
@@ -69,6 +72,8 @@
     <Compile Include="EntityFramework\EfContactDal.cs" />
     <Compile Include="EntityFramework\EfContentDal.cs" />
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
+    <Compile Include="EntityFramework\EfMessageDal.cs" />
+    <Compile Include="EntityFramework\EfImageFileDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
     <Compile Include="Migrations\202104170846456_writeredit.cs" />
     <Compile Include="Migrations\202104170846456_writeredit.designer.cs">
@@ -97,6 +102,18 @@
     <Compile Include="Migrations\202106010735522_headingstatus.cs" />
     <Compile Include="Migrations\202106010735522_headingstatus.designer.cs">
       <DependentUpon>202106010735522_headingstatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106032136589_messageclass.cs" />
+    <Compile Include="Migrations\202106032136589_messageclass.designer.cs">
+      <DependentUpon>202106032136589_messageclass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106050751356_contactdate.cs" />
+    <Compile Include="Migrations\202106050751356_contactdate.designer.cs">
+      <DependentUpon>202106050751356_contactdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106051302368_imagefile.cs" />
+    <Compile Include="Migrations\202106051302368_imagefile.designer.cs">
+      <DependentUpon>202106051302368_imagefile.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -132,6 +149,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106010735522_headingstatus.resx">
       <DependentUpon>202106010735522_headingstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106032136589_messageclass.resx">
+      <DependentUpon>202106032136589_messageclass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106050751356_contactdate.resx">
+      <DependentUpon>202106050751356_contactdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106051302368_imagefile.resx">
+      <DependentUpon>202106051302368_imagefile.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
