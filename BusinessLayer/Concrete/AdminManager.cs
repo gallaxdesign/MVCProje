@@ -27,11 +27,7 @@ namespace BusinessLayer.Concrete
             _adminDal.Insert(writer);
         }
 
-        public object GetbyAdminUsername(Admin p)
-        {
-            return _adminDal.Get(x => x.AdminUsername == p.AdminUsername && x.AdminPassword == p.AdminPassword);
-        }
-
+       
         public void AdminDelete(Admin writer)
         {
             _adminDal.Delete(writer);
@@ -52,9 +48,9 @@ namespace BusinessLayer.Concrete
             return _adminDal.List();
         }
 
-        public Admin GetbyAdminUsername(int p)
+        public Admin GetbyAdminUsername(Admin admin)
         {
-            return _adminDal.Get(x => x.AdminUsername == p.AdminUsername && x.AdminPassword == p.AdminPassword);
+            return _adminDal.Get(x => x.AdminUsername == admin.AdminUsername && x.AdminPassword == admin.AdminPassword);
         }
     }
 }

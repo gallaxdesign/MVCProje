@@ -14,6 +14,7 @@ namespace MVCProje.Controllers
     public class ContactController : Controller
     {
         ContactManager cm = new ContactManager(new EfContactDal());
+        MessageManager mm = new MessageManager(new EfMessageDal());
         ContactValidator contactValidator = new ContactValidator();
         public ActionResult Index()
         {
@@ -82,6 +83,24 @@ namespace MVCProje.Controllers
                 }
             }
             return View();
+        }
+
+        public int ContacInboxMail()
+        {
+
+            var degerler = mm.GetMessageListInbox(); 
+            return degerler.Count();
+
+
+        }
+
+        public int MessageMail()
+        {
+
+            var degerler = cm.GetContactList();
+            return degerler.Count();
+
+
         }
     }
 }

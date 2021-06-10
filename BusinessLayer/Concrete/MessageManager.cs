@@ -50,5 +50,7 @@ namespace BusinessLayer.Concrete
         {
             return _messageDal.List(x => x.SenderMail == "admin@gmail.com");
         }
+
+
     }
 }

@@ -12,7 +12,7 @@ namespace BusinessLayer.Abstract
         List<Admin> GetAdminList();
         void AdminAdd(Admin admin);
         Admin GetByID(int id);
-        Admin GetbyAdminUsername(int p);
+        Admin GetbyAdminUsername(Admin admin);
 
         void AdminDelete(Admin admin);
         void AdminUpdate(Admin admin);
