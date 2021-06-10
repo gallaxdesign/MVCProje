@@ -97,7 +97,7 @@ namespace MVCProje.Controllers
         public int MessageMail()
         {
 
-            var degerler = cm.GetContactList();
+            var degerler = cm.GetContactList(); 
             return degerler.Count();
 
 

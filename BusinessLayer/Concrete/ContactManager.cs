@@ -44,7 +44,7 @@ namespace BusinessLayer.Concrete
 
         public List<Contact> GetContactList()
         {
-            return _contactDal.List();
+            return _contactDal.List(); 
         }
     }
 }
