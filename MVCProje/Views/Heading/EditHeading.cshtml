@@ -18,10 +18,10 @@
     @Html.TextBoxFor(x => x.HeadingDate)
     <br />
     @Html.Label("Yazar Adı")
-    @Html.DropDownListFor(X => X.WriterID, (List<SelectListItem>)ViewBag.valwrit, new { @class = "form-control" })
+    @Html.DropDownListFor(X => X.WriterID, (List<SelectListItem>)ViewBag.wrt, new { @class = "form-control" })
     <br />
     @Html.Label("Kategori Adı")
-    @Html.DropDownListFor(X => X.CategoryID, (List<SelectListItem>)ViewBag.valcat, new { @class = "form-control" })
+    @Html.DropDownListFor(X => X.CategoryID, (List<SelectListItem>)ViewBag.vlc, new { @class = "form-control" })
     <br />
     <button class="btn btn-success">Güncelle</button>
 </div>

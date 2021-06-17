@@ -9,50 +9,56 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MVCProje.Controllers
+namespace MvcProje.Controllers
 {
-    public class HeadingController : Controller
+    public class WriterPanelController : Controller
     {
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
         WriterManager wm = new WriterManager(new EfWriterDal());
         HeadingValidator headingValidator = new HeadingValidator();
-        public ActionResult Index()
+
+        public ActionResult WriterProfile()
         {
-            var HeadingValues = hm.GetHeadingList();
-            return View(HeadingValues);
+            return View();
         }
+
+        public ActionResult MyHeading()
+        {
+
+            
+            //id = 4;
+            var values = hm.GetHeadingListbyWriter();
+            return View(values);
+        }
+
         [HttpGet]
         public ActionResult AddHeading()
         {
-            List<SelectListItem> valuecategory = (from x in cm.GetCategoryList()
+            
+            
+            List<SelectListItem> valueCategory = (from x in cm.GetCategoryList()
                                                   select new SelectListItem
                                                   {
                                                       Text = x.CategoryName,
                                                       Value = x.CategoryID.ToString()
                                                   }).ToList();
-            List<SelectListItem> valuewriter = (from x in wm.GetWriterList()
-                                                select new SelectListItem
-                                                {
-                                                    Text = x.WriterName + " " + x.WriterSurName,
-                                                    Value = x.WriterID.ToString()
-                                                }).ToList();
-            ViewBag.vlc = valuecategory;
-            ViewBag.wrt = valuewriter;
+            ViewBag.valcat = valueCategory;
             return View();
         }
+
         [HttpPost]
         public ActionResult AddHeading(Heading p)
         {
-
-           
             ValidationResult results = headingValidator.Validate(p);
             if (results.IsValid)
             {
-                p.HeadingStatus = true;
+                
                 p.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                p.WriterID = 1;
+                p.HeadingStatus = true;
                 hm.HeadingAdd(p);
-                return RedirectToAction("Index");
+                return RedirectToAction("MyHeading");
             }
             else
             {
@@ -63,26 +69,38 @@ namespace MVCProje.Controllers
             }
             return View();
         }
+
+        public ActionResult DeleteHeading(int id)
+        {
+            var headingvalues = hm.GetByID(id);
+            if (headingvalues.HeadingStatus == true)
+            {
+                headingvalues.HeadingStatus = false;
+                hm.HeadingDelete(headingvalues);
+            }
+            else
+            {
+                headingvalues.HeadingStatus = true;
+                hm.HeadingDelete(headingvalues);
+            }
+            return RedirectToAction("MyHeading");
+        }
+
         [HttpGet]
         public ActionResult EditHeading(int id)
         {
-            List<SelectListItem> valuecategory = (from x in cm.GetCategoryList()
+
+            List<SelectListItem> valueCategory = (from x in cm.GetCategoryList()
                                                   select new SelectListItem
                                                   {
                                                       Text = x.CategoryName,
                                                       Value = x.CategoryID.ToString()
                                                   }).ToList();
-            List<SelectListItem> valuewriter = (from x in wm.GetWriterList()
-                                                select new SelectListItem
-                                                {
-                                                    Text = x.WriterName + " " + x.WriterSurName,
-                                                    Value = x.WriterID.ToString()
-                                                }).ToList();
-            ViewBag.vlc = valuecategory;
-            ViewBag.wrt = valuewriter;
+            ViewBag.valcat = valueCategory;
             var hvalue = hm.GetByID(id);
             return View(hvalue);
         }
+
         [HttpPost]
         public ActionResult EditHeading(Heading p)
         {
@@ -102,12 +120,8 @@ namespace MVCProje.Controllers
             }
             return View();
         }
-        public ActionResult DeleteHeading(int id)
-        {
-            var HeadingValue = hm.GetByID(id);
-            HeadingValue.HeadingStatus = false;
-            hm.HeadingDelete(HeadingValue);
-            return RedirectToAction("Index");
-        }
+
+
+
     }
 }

@@ -46,5 +46,10 @@ namespace BusinessLayer.Concrete
         {
             return _headingDal.List();
         }
+
+        public List<Heading> GetHeadingListbyWriter()
+        {
+            return _headingDal.List(x=> x.WriterID == 1);
+        }
     }
 }
