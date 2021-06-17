@@ -19,15 +19,23 @@
     </tr>
     @foreach (var item in Model)
     {
-        <tr>
-            <th>@item.AboutID</th>
-            <td>@item.AboutDetails1</td>
+<tr>
+    <th>@item.AboutID</th>
+    <td>@item.AboutDetails1</td>
+    @if (item.AboutStatus == true)
+    {
+        <td><a href="#" class="btn btn-dark">Aktif</a></td>
+        <td><a href="/About/StatusChange/@item.AboutID" class="btn btn-danger">Pasif Yap</a></td>
+    }
+    else
+    {
+        <td><a href="/About/StatusChange/@item.AboutID" class="btn btn-success">Aktif Yap</a></td>
+        <td><a href="#" class="btn btn-dark">Pasif</a></td>
+    }
 
 
-            <td><a href="/About/DeleteCategory/@item.AboutID" class="btn btn-danger">Aktif</a></td>
-            <td><a href="/About/EditCategory/@item.AboutID" class="btn btn-success">Pasif</a></td>
 
-        </tr>
+</tr>
     }
 
 </table>

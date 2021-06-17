@@ -12,7 +12,7 @@ namespace BusinessLayer.Abstract
         List<Contact> GetContactList();
         void ContactAdd(Contact contact);
         Contact GetByID(int id);
-
+        List<Contact> GetUnreadList();
         void ContactDelete(Contact contact);
         void ContactUpdate(Contact contact);
     }

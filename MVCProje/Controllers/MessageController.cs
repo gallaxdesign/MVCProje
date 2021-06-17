@@ -37,6 +37,8 @@ namespace MVCProje.Controllers
         public ActionResult GetInboxMessageDetails(int id)
         {
             var InboxValues = mm.GetByID(id);
+            InboxValues.MessageUnread = false;
+            mm.MessageUpdate(InboxValues);
             return View(InboxValues);
 
         }
@@ -68,8 +70,6 @@ namespace MVCProje.Controllers
             }
             return View();
         }
-
-        
 
 
 

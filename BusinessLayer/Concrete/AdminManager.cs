@@ -22,20 +22,24 @@ namespace BusinessLayer.Concrete
         }
 
 
-        public void AdminAdd(Admin writer)
+        public void AdminAdd(Admin admin)
         {
-            _adminDal.Insert(writer);
+            _adminDal.Insert(admin);
         }
 
-       
-        public void AdminDelete(Admin writer)
+        public object GetbyAdminUsername(Admin p)
         {
-            _adminDal.Delete(writer);
+            return _adminDal.Get(x => x.AdminUsername == p.AdminUsername && x.AdminPassword == p.AdminPassword);
         }
 
-        public void AdminUpdate(Admin writer)
+        public void AdminDelete(Admin admin)
         {
-            _adminDal.Update(writer);
+            _adminDal.Delete(admin);
+        }
+
+        public void AdminUpdate(Admin admin)
+        {
+            _adminDal.Update(admin);
         }
 
         public Admin GetByID(int id)
@@ -48,9 +52,15 @@ namespace BusinessLayer.Concrete
             return _adminDal.List();
         }
 
-        public Admin GetbyAdminUsername(Admin admin)
+        Admin IAdminService.GetbyAdminUsername(Admin admin)
         {
-            return _adminDal.Get(x => x.AdminUsername == admin.AdminUsername && x.AdminPassword == admin.AdminPassword);
+            return _adminDal.Get(x => x.AdminUsername == admin.AdminUsername
+                                      && x.AdminPassword == admin.AdminPassword);
+        }
+
+        public Admin GetByUsername(string username)
+        {
+            return _adminDal.Get(x => x.AdminUsername == username);
         }
     }
 }

@@ -85,21 +85,17 @@ namespace MVCProje.Controllers
             return View();
         }
 
-        public int ContacInboxMail()
+        public int UnreadMail()
         {
-
-            var degerler = mm.GetMessageListInbox(); 
+            var degerler = mm.GetUnreadList();
             return degerler.Count();
-
 
         }
 
-        public int MessageMail()
+        public int UnreadMailContact()
         {
-
-            var degerler = cm.GetContactList(); 
+            var degerler = cm.GetUnreadList();
             return degerler.Count();
-
 
         }
     }

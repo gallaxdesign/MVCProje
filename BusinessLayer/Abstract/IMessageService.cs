@@ -15,6 +15,8 @@ namespace BusinessLayer.Abstract
         void MessageAdd(Message message);
         Message GetByID(int id);
 
+        List<Message> GetUnreadList();
+
         void MessageDelete(Message message);
         void MessageUpdate(Message message);
     }

@@ -74,5 +74,21 @@ namespace MVCProje.Controllers
         {
             return PartialView();
         }
+
+        public ActionResult StatusChange(int id)
+        {
+            var status = abm.GetByID(id);
+            if (status.AboutStatus == true)
+            {
+                status.AboutStatus = false;
+                abm.AboutUpdate(status);
+            }
+            else
+            {
+                status.AboutStatus = true;
+                abm.AboutUpdate(status);
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

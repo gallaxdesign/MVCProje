@@ -24,5 +24,8 @@ namespace EntityLayer.Concrete
 
         public string Message { get; set; }
 
+        public bool ContactUnread { get; set; }
+        public bool ContactStatus { get; set; }
+
     }
 }
