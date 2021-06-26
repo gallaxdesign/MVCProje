@@ -29,11 +29,7 @@ namespace MvcProje.Controllers
             return PartialView();
         }
 
-        public ActionResult Read() //Tamam
-        {
-            var deger = mm.GetReadList();
-            return View(deger);
-        }
+        
 
         public ActionResult UnRead() //Tamam
         {
@@ -48,19 +44,25 @@ namespace MvcProje.Controllers
             return View(deger);
         }
 
-        public ActionResult Draft() //Tamam
-        {
-            var deger = mm.GetListDraft();
-            return View(deger);
-        }
+        //public ActionResult Read() //Tamam
+        //{
+        //    var deger = mm.GetReadList();
+        //    return View(deger);
+        //}
 
-        public ActionResult Trash() //Tamam
-        {
-            var deger = mm.GetListTrash();
-            return View(deger);
-        }
+        //public ActionResult Draft() //Tamam
+        //{
+        //    var deger = mm.GetListDraft();
+        //    return View(deger);
+        //}
 
-        
+        //public ActionResult Trash() //Tamam
+        //{
+        //    var deger = mm.GetListTrash();
+        //    return View(deger);
+        //}
+
+
 
         [HttpGet]
         public ActionResult NewMessage() //Tamam

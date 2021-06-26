@@ -21,15 +21,18 @@ namespace MVCProje.Controllers
             return View();
         }
 
-        public ActionResult MyContent()
-        {            
-            var contentvalues = cm.GetContentListByWriter();
+        public ActionResult MyContent(string p)
+        {
+            Context c = new Context();
+            p = (string)Session["WriterMail"];
+            var writerid = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterID).FirstOrDefault();
+            var contentvalues = cm.GetContentListByWriter(writerid);
             return View(contentvalues);
         }
 
         public ActionResult ContentByHeading(int id)
         {
-            var contentvalues = cm.GetListByHeadingID(id);
+            var contentvalues = cm.GetContentListByHeadingID(id);
             return View(contentvalues);
         }
 

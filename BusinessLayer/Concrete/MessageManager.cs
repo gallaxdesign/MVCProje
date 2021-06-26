@@ -56,20 +56,20 @@ namespace BusinessLayer.Concrete
             return _messageDal.List(x => x.MessageUnread == true);
         }
 
-        public List<Message> GetReadList()
-        {
-            return _messageDal.List(x => x.MessageRead == true);
-        }
+        //public List<Message> GetReadList()
+        //{
+        //    return _messageDal.List(x => x.MessageRead == true);
+        //}
     
 
-        public List<Message> GetListDraft()
-        {
-            return _messageDal.List(x => x.MessageStatus == "Draft");
-        }
+        //public List<Message> GetListDraft()
+        //{
+        //    return _messageDal.List(x => x.MessageStatus == "Draft");
+        //}
 
-        public List<Message> GetListTrash()
-        {
-            return _messageDal.List(x => x.MessageStatus == "Trash");
-        }
+        //public List<Message> GetListTrash()
+        //{
+        //    return _messageDal.List(x => x.MessageStatus == "Trash");
+        //}
     }
 }

@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -17,26 +18,25 @@ namespace MvcProje.Controllers
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
         WriterManager wm = new WriterManager(new EfWriterDal());
         HeadingValidator headingValidator = new HeadingValidator();
-
+        Context c = new Context();
         public ActionResult WriterProfile()
         {
             return View();
         }
 
-        public ActionResult MyHeading()
+        public ActionResult MyHeading(string p)
         {
 
-            
-            //id = 4;
-            var values = hm.GetHeadingListbyWriter();
+            p = (string)Session["WriterMail"];
+            var writerid = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterID).FirstOrDefault();
+            var values = hm.GetHeadingListbyWriter(writerid);
             return View(values);
         }
 
         [HttpGet]
         public ActionResult AddHeading()
         {
-            
-            
+          
             List<SelectListItem> valueCategory = (from x in cm.GetCategoryList()
                                                   select new SelectListItem
                                                   {
@@ -53,9 +53,11 @@ namespace MvcProje.Controllers
             ValidationResult results = headingValidator.Validate(p);
             if (results.IsValid)
             {
-                
+
+                string wid = (string)Session["WriterMail"];
+                var writerid = c.Writers.Where(x => x.WriterMail == wid).Select(y => y.WriterID).FirstOrDefault();
                 p.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-                p.WriterID = 1;
+                p.WriterID = writerid;
                 p.HeadingStatus = true;
                 hm.HeadingAdd(p);
                 return RedirectToAction("MyHeading");
