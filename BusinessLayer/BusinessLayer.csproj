@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IWriterLoginService.cs" />
     <Compile Include="Abstract\IContentService.cs" />
     <Compile Include="Abstract\IAboutService.cs" />
     <Compile Include="Abstract\IContactService.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Abstract\IWriterService.cs" />
     <Compile Include="Abstract\IHeadingService.cs" />
     <Compile Include="Abstract\ICategoryService.cs" />
+    <Compile Include="Concrete\WriterLoginManager.cs" />
     <Compile Include="Concrete\ContentManager.cs" />
     <Compile Include="Concrete\AboutManager.cs" />
     <Compile Include="Concrete\ContactManager.cs" />

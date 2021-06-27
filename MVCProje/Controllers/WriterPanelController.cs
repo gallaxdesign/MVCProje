@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace MvcProje.Controllers
 {
@@ -18,9 +20,35 @@ namespace MvcProje.Controllers
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
         WriterManager wm = new WriterManager(new EfWriterDal());
         HeadingValidator headingValidator = new HeadingValidator();
+        WriterValidator writerValidator = new WriterValidator();
         Context c = new Context();
-        public ActionResult WriterProfile()
+
+        [HttpGet]
+        public ActionResult WriterProfile(int id=0)
         {
+            string p = (string)Session["WriterMail"];
+            id = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterID).FirstOrDefault();
+            var wvalue = wm.GetByID(id);
+            return View(wvalue);
+        }
+
+        [HttpPost]
+        public ActionResult WriterProfile(Writer p)
+        {
+
+            ValidationResult results = writerValidator.Validate(p);
+            if (results.IsValid)
+            {
+                wm.WriterUpdate(p);
+                return RedirectToAction("AllHeading");
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
             return View();
         }
 
@@ -121,6 +149,11 @@ namespace MvcProje.Controllers
                 }
             }
             return View();
+        }
+        public ActionResult AllHeading(int page=1)
+        {
+            var headings= hm.GetHeadingList().ToPagedList(page,2);
+            return View(headings);
         }
 
 

@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -18,9 +19,11 @@ namespace MvcProje.Controllers
         WriterManager vm = new WriterManager(new EfWriterDal());
         MessageValidator messageValidator = new MessageValidator();
 
-        public ActionResult Inbox() //Bu Tamam
+
+        public ActionResult Inbox() 
         {
-            var deger = mm.GetMessageListInbox();
+            string p = (string)Session["WriterMail"];
+            var deger = mm.GetMessageListInbox(p);
             return View(deger);
         }
 
@@ -31,16 +34,17 @@ namespace MvcProje.Controllers
 
         
 
-        public ActionResult UnRead() //Tamam
+        public ActionResult UnRead() 
         {
             var deger = mm.GetUnreadList();
             return View(deger);
         }
 
 
-        public ActionResult Sentbox() //Tamam
+        public ActionResult Sentbox() 
         {
-            var deger = mm.GetMessageListSentbox();
+            string p = (string)Session["WriterMail"];
+            var deger = mm.GetMessageListSentbox(p);
             return View(deger);
         }
 
@@ -77,13 +81,14 @@ namespace MvcProje.Controllers
         [ValidateInput(false)]
         public ActionResult NewMessage(Message p, string MessageContent) 
         {
+            string sender = (string)Session["WriterMail"];
             ValidationResult results = messageValidator.Validate(p);
             if (results.IsValid)
             {
                 p.MessageDate = DateTime.Now;
                 //p.MessageContent = MessageContent;
                 //p.MessageStatus = "Gönderilen";
-                p.SenderMail = "umut@gmail.com";
+                p.SenderMail = sender;
                 mm.MessageAdd(p);
                 return RedirectToAction("Sendbox");
             }

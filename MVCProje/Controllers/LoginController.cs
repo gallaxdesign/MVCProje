@@ -19,6 +19,8 @@ namespace MVCProje.Controllers
     public class LoginController : Controller
     {
         AdminManager adm = new AdminManager(new EfAdminDal());
+        WriterLoginManager wm = new WriterLoginManager(new EfWriterDal());
+
         [HttpGet]
         public ActionResult Index()
         {
@@ -47,7 +49,8 @@ namespace MVCProje.Controllers
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Login");
+            Session.Abandon();
+            return RedirectToAction("Headings", "Default");
         }
 
         [HttpGet]
@@ -93,8 +96,10 @@ namespace MVCProje.Controllers
             p.WriterPassword = result;
             Console.WriteLine(result);
 
-            Context c = new Context();
-            var writeruserinfo = c.Writers.FirstOrDefault(x => x.WriterMail == p.WriterMail && x.WriterPassword == p.WriterPassword);
+            //Context c = new Context();
+            //var writeruserinfo = c.Writers.FirstOrDefault(x => x.WriterMail == p.WriterMail && x.WriterPassword == p.WriterPassword);
+
+            var writeruserinfo = wm.GetWriter(p.WriterMail, p.WriterPassword);
             if (writeruserinfo != null)
             {
                 FormsAuthentication.SetAuthCookie(writeruserinfo.WriterMail, false);

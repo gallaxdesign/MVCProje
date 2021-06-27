@@ -16,6 +16,8 @@ namespace MVCProje.Controllers
     {
         // GET: WriterPanelConten
         ContentManager cm = new ContentManager(new EfContentDal());
+        Context c = new Context();
+
         public ActionResult Index()
         {
             return View();
@@ -23,7 +25,7 @@ namespace MVCProje.Controllers
 
         public ActionResult MyContent(string p)
         {
-            Context c = new Context();
+            
             p = (string)Session["WriterMail"];
             var writerid = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterID).FirstOrDefault();
             var contentvalues = cm.GetContentListByWriter(writerid);
@@ -58,15 +60,15 @@ namespace MVCProje.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddContent(Content p, string s)
+        public ActionResult AddContent(Content p)
         {
-            Context c = new Context();
-            s = (string)Session["WriterMail"];
-            var deger = c.Writers.Where(x => x.WriterMail == s).Select(a => a.WriterID).FirstOrDefault();
-            int id = deger;
 
-            p.ContentDate = DateTime.Now;
-            p.WriterID = id;
+            string mail = (string)Session["WriterMail"];
+            var writerid = c.Writers.Where(x => x.WriterMail == mail).Select(y => y.WriterID).FirstOrDefault();
+
+
+            p.ContentDate = DateTime.Parse(DateTime.Now.ToShortDateString()); ;
+            p.WriterID = writerid;
             p.ContentStatus = true;
             cm.ContentAdd(p);
             return RedirectToAction("MyContent");
@@ -76,5 +78,7 @@ namespace MVCProje.Controllers
         {
             return View();
         }
+
+
     }
 }
