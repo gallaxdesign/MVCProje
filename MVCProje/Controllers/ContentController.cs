@@ -18,6 +18,19 @@ namespace MVCProje.Controllers
         {
             return View();
         }
+
+        public ActionResult GetAllContent(string p)
+        {
+            var searchvalues = cm.GetContentList(p);
+            if (!string.IsNullOrEmpty(p))
+            {
+                return View(searchvalues.ToList());
+            }
+            var values = cm.GetAllContentList();
+            return View(values.ToList());
+
+        }
+
         public ActionResult ContentByHeading(int id)
         {
             var contentValues = cm.GetContentListByHeadingID(id);
