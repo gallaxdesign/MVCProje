@@ -14,9 +14,7 @@
         <th>STATUS</th>
         <th>PASİF YAP</th>
         <th>YETKİSİNİ DEĞİŞTİR</th>
-        @*<th>SİL</th>
-            <th>GÜNCELLE</th>
-            <th>BAŞLIKLAR</th>*@
+       
     </tr>
     @foreach (var item in Model)
     {
@@ -27,10 +25,10 @@
             <td>Aktif</td>
             <td><a href="/AdminCategory//@item.AdminID" class="btn btn-danger">Pasif Yap</a></td>
             <td><a href="/AdminCategory//@item.AdminID" class="btn btn-warning">Yetkisini Değiştir</a></td>
-            @*<td><a href="#" class="btn btn-primary">Başlık Detayları</a></td>*@
+           
         </tr>
     }
 </table>
-<a href="/Register/Index/" class="btn btn-dark">Yeni Admin Ekle</a>
+<a href="/Authorization/AddAdmin/" class="btn btn-dark">Yeni Admin Ekle</a>
 <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
 
